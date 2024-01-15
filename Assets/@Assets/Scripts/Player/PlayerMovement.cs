@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour {
@@ -11,56 +9,37 @@ public class PlayerMovement : MonoBehaviour {
         Rolling,
     }
 
+    [SerializeField] private PlayerStats stats;
     [SerializeField] private LayerMask dashLayerMask;
 
-    private Rigidbody2D rigidbody2D;
+    private Rigidbody2D rb;
+    private InputSystem input;
+
     Vector3 moveDir;
     Vector3 rollDir;
     float rollSpeed;
     bool isDashButtonDown;
     State state;
 
-
     void Awake() {
-        rigidbody2D = GetComponent<Rigidbody2D>();
+        rb = GetComponent<Rigidbody2D>();
+        input = GetComponent<InputSystem>();
         state = State.Normal;
     }
-
     
     void Update() {
         switch (state) {
             case State.Normal:
-                float moveX = 0f;
-                float moveY = 0f;
-
-                // Movement Keys
-                if (Input.GetKey(KeyCode.W))
-                {
-                    moveY = 1f;
-                }
-                if (Input.GetKey(KeyCode.S))
-                {
-                    moveY = -1f;
-                }
-                if (Input.GetKey(KeyCode.A))
-                {
-                    moveX = -1f;
-                }
-                if (Input.GetKey(KeyCode.D))
-                {
-                    moveX = 1f;
-                }
-
-                moveDir = new Vector3(moveX, moveY).normalized;
+                moveDir = input.GetMovementInput();
 
                 // Dash Key
-                if (Input.GetKeyDown(KeyCode.Space))
+                if (stats.CanDash && input.GetDash())
                 {
                     isDashButtonDown = true;
                 }
 
                 // Roll Key
-                if (Input.GetKeyDown(KeyCode.F))
+                if (stats.CanRoll && input.GetRoll())
                 {
                     rollDir = moveDir;
                     rollSpeed = 15f;
@@ -83,7 +62,7 @@ public class PlayerMovement : MonoBehaviour {
     void FixedUpdate() {
         switch (state) { 
         case State.Normal:
-            rigidbody2D.velocity = moveDir * MOVE_SPEED;
+                rb.velocity = moveDir * MOVE_SPEED;
 
             if (isDashButtonDown) 
             {
@@ -96,14 +75,13 @@ public class PlayerMovement : MonoBehaviour {
                     dashPosition = raycastHit2D.point;
                 }
 
-                rigidbody2D.MovePosition(dashPosition);
+                rb.MovePosition(dashPosition);
                 isDashButtonDown = false;
             }
                 break;
         case State.Rolling:
-                rigidbody2D.velocity = rollDir * rollSpeed;
+                rb.velocity = rollDir * rollSpeed;
                 break;
         }
-        
     }
 }
