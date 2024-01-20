@@ -1,9 +1,8 @@
+using System.Linq;
 using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour {
+public class Player : MonoBehaviour {
     
-    const float MOVE_SPEED = 10f;
-
     private enum State { 
         Normal,
         Rolling,
@@ -11,23 +10,37 @@ public class PlayerMovement : MonoBehaviour {
 
     [SerializeField] private PlayerStats stats;
     [SerializeField] private LayerMask dashLayerMask;
+    [SerializeField] private int playerSpriteLayer;
 
     private Rigidbody2D rb;
     private InputSystem input;
+    private WeaponParent weaponParent;
 
-    Vector3 moveDir;
-    Vector3 rollDir;
-    float rollSpeed;
-    bool isDashButtonDown;
-    State state;
+    private Vector3 moveDir;
+    private Vector3 rollDir;
+    private float rollSpeed;
+    private bool isDashButtonDown;
+    private State state;
 
-    void Awake() {
+    private void Awake() {
         rb = GetComponent<Rigidbody2D>();
         input = GetComponent<InputSystem>();
+        weaponParent = GetComponentInChildren<WeaponParent>();
         state = State.Normal;
+
+        SpriteRenderer spriteRenderer = GetComponentsInChildren<SpriteRenderer>().FirstOrDefault();
+        if (spriteRenderer != null)
+        {
+            spriteRenderer.sortingOrder = playerSpriteLayer;
+        }
     }
     
-    void Update() {
+    private void Start()
+    {
+        weaponParent.Initialize(input, playerSpriteLayer);
+    }
+
+    private void Update() {
         switch (state) {
             case State.Normal:
                 moveDir = input.GetMovementInput();
@@ -56,30 +69,29 @@ public class PlayerMovement : MonoBehaviour {
                 }
                 break;
         }
-        
     }
 
-    void FixedUpdate() {
+    private void FixedUpdate() {
         switch (state) { 
-        case State.Normal:
-                rb.velocity = moveDir * MOVE_SPEED;
+            case State.Normal:
+                rb.velocity = moveDir * stats.MoveSpeed;
 
-            if (isDashButtonDown) 
-            {
-                float dashAmount = 3f;
-                Vector3 dashPosition = transform.position + moveDir * dashAmount;
+                if (isDashButtonDown) {
+                    float dashAmount = 3f;
+                    Vector3 dashPosition = transform.position + moveDir * dashAmount;
     
-                RaycastHit2D raycastHit2D = Physics2D.Raycast(transform.position, moveDir, dashAmount, dashLayerMask);
-                if (raycastHit2D.collider != null) 
-                {
-                    dashPosition = raycastHit2D.point;
+                    RaycastHit2D raycastHit2D = Physics2D.Raycast(transform.position, moveDir, dashAmount, dashLayerMask);
+                    if (raycastHit2D.collider != null) 
+                    {
+                        dashPosition = raycastHit2D.point;
+                    }
+
+                    rb.MovePosition(dashPosition);
+                    isDashButtonDown = false;
                 }
 
-                rb.MovePosition(dashPosition);
-                isDashButtonDown = false;
-            }
                 break;
-        case State.Rolling:
+            case State.Rolling:
                 rb.velocity = rollDir * rollSpeed;
                 break;
         }

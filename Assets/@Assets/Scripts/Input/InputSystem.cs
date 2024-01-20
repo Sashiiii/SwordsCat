@@ -20,6 +20,13 @@ public class InputSystem : MonoBehaviour
         return input.Gameplay.Movement.ReadValue<Vector2>();
     }
 
+    public Vector2 GetPointerPosition()
+    {
+        Vector3 pointerPosition = input.Gameplay.Pointer.ReadValue<Vector2>();
+        pointerPosition.z = Camera.main.nearClipPlane;
+        return Camera.main.ScreenToWorldPoint(pointerPosition);
+    }
+
     public bool GetDash()
     {
         return input.Gameplay.Dash.WasPressedThisFrame();

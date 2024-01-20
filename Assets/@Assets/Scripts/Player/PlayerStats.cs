@@ -5,4 +5,5 @@ public class PlayerStats : ScriptableObject
 {
     public bool CanDash = true;
     public bool CanRoll = true;
+    public float MoveSpeed = 10f;
 }
