@@ -1,0 +1,531 @@
+fileFormatVersion: 2
+guid: 3968e7eb28e008943abfc0adeb9280a0
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: 62a9f0aa5b59740cfbadc7e5f9823bb0, type: 3}
+  textureImporterSettings:
+    alphaSource: 1
+    mipMapMode: 0
+    enableMipMap: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+    convertToNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+    swizzle: 50462976
+    isReadable: 0
+    streamingMipmaps: 0
+    streamingMipmapsPriority: 0
+    vTOnly: 0
+    ignoreMipmapLimit: 0
+    nPOTScale: 1
+    sRGBTexture: 1
+    spriteMode: 2
+    spriteExtrude: 1
+    spriteMeshType: 1
+    alignment: 0
+    spritePivot: {x: 0.5, y: 0.5}
+    spritePixelsToUnits: 100
+    spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+    spriteGenerateFallbackPhysicsShape: 0
+    generateCubemap: 6
+    cubemapConvolution: 0
+    seamlessCubemap: 0
+    alphaIsTransparency: 1
+    spriteTessellationDetail: -1
+    textureType: 8
+    textureShape: 1
+    singleChannelComponent: 0
+    flipbookRows: 0
+    flipbookColumns: 0
+    ignorePngGamma: 0
+    cookieMode: 0
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+    normalMap: 0
+    textureFormat: 0
+    maxTextureSize: 0
+    lightmap: 0
+    compressionQuality: 0
+    linearTexture: 0
+    grayScaleToAlpha: 0
+    rGBM: 0
+    cubemapConvolutionSteps: 0
+    cubemapConvolutionExponent: 0
+    maxTextureSizeSet: 0
+    compressionQualitySet: 0
+    textureFormatSet: 0
+    applyGammaDecoding: 0
+  previousAsepriteImporterSettings:
+    fileImportMode: 1
+    importHiddenLayers: 0
+    layerImportMode: 1
+    defaultPivotSpace: 0
+    defaultPivotAlignment: 7
+    customPivotPosition: {x: 0.5, y: 0.5}
+    mosaicPadding: 4
+    spritePadding: 0
+    generateModelPrefab: 1
+    generateAnimationClips: 1
+    addSortingGroup: 1
+    addShadowCasters: 0
+  asepriteImporterSettings:
+    fileImportMode: 1
+    importHiddenLayers: 0
+    layerImportMode: 1
+    defaultPivotSpace: 0
+    defaultPivotAlignment: 7
+    customPivotPosition: {x: 0.5, y: 0.5}
+    mosaicPadding: 4
+    spritePadding: 0
+    generateModelPrefab: 1
+    generateAnimationClips: 1
+    addSortingGroup: 1
+    addShadowCasters: 0
+  importFileNodeState: 1
+  platformSettingsDirtyTick: 0
+  textureAssetName: 
+  singleSpriteImportData:
+  - name: 
+    originalName: 
+    pivot: {x: 0, y: 0}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 0
+      height: 0
+    spriteID: 
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  animatedSpriteImportData:
+  - name: Boneco de Teste_Frame_0
+    originalName: 
+    pivot: {x: 0.41935486, y: -0.03125}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 4
+      width: 31
+      height: 64
+    spriteID: 39148a28e8834244dbf7ec8a9a990af5
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 4}
+  - name: Boneco de Teste_Frame_1
+    originalName: 
+    pivot: {x: 0.22580649, y: -0.032786883}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 43
+      y: 4
+      width: 31
+      height: 61
+    spriteID: 504c86659be732442b4b4af92ce8f1e0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 43, y: 4}
+  - name: Boneco de Teste_Frame_2
+    originalName: 
+    pivot: {x: 0.58620685, y: -0.032258064}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 82
+      y: 74
+      width: 29
+      height: 62
+    spriteID: 536d7623138d8544e959f01a30c4f9a8
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 82, y: 74}
+  - name: Boneco de Teste_Frame_3
+    originalName: 
+    pivot: {x: 0.33333337, y: -0.032258064}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 82
+      y: 4
+      width: 30
+      height: 62
+    spriteID: eb88b113683726847a8aecfca29cbb1e
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 82, y: 4}
+  - name: Boneco de Teste_Frame_4
+    originalName: 
+    pivot: {x: 0.49999997, y: -0.031746034}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 43
+      y: 73
+      width: 30
+      height: 63
+    spriteID: fb9cdc621bee1ab40bf33767dee1ea47
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 43, y: 73}
+  - name: Boneco de Teste_Frame_5
+    originalName: 
+    pivot: {x: 0.36666667, y: -0.031746034}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 43
+      y: 144
+      width: 30
+      height: 63
+    spriteID: a14cd9e9f3480eb4a869396cd1c68418
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 43, y: 144}
+  - name: Boneco de Teste_Frame_6
+    originalName: 
+    pivot: {x: 0.4516129, y: -0.031746034}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 148
+      width: 31
+      height: 63
+    spriteID: 6777e3f1d4c85a74c9cb0c0dfd33bdf9
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 148}
+  - name: Boneco de Teste_Frame_7
+    originalName: 
+    pivot: {x: 0.41935486, y: -0.03125}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 76
+      width: 31
+      height: 64
+    spriteID: b2526c4888ade74418023b9f18369be2
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 76}
+  - name: Boneco de Teste_Frame_8
+    originalName: 
+    pivot: {x: 0.16666666, y: -1.5333333}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 43
+      y: 215
+      width: 18
+      height: 15
+    spriteID: cfce1e8793a7e4b45987a2575eb19f57
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 43, y: 215}
+  - name: Boneco de Teste_Frame_9
+    originalName: 
+    pivot: {x: 0.54838705, y: -0.5}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 219
+      width: 31
+      height: 32
+    spriteID: 2f83e8ddd474caa4e842f3cec00d96d1
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 219}
+  - name: Boneco de Teste_Frame_10
+    originalName: 
+    pivot: {x: -0.0666666, y: -1.9230769}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 43
+      y: 238
+      width: 15
+      height: 13
+    spriteID: 284e7051712091d478877d8529a1def4
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 43, y: 238}
+  - name: Boneco de Teste_Frame_11
+    originalName: 
+    pivot: {x: -0.6363635, y: -3.3749998}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 82
+      y: 144
+      width: 11
+      height: 8
+    spriteID: 782f6f42cf6281c47a559b2a7cde20b5
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 82, y: 144}
+  - name: Boneco de Teste_Frame_12
+    originalName: 
+    pivot: {x: -0.9166667, y: -31}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 101
+      y: 144
+      width: 12
+      height: 1
+    spriteID: d08c0d3ad60fb6c45a5e16e06e8d6c61
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 101, y: 144}
+  - name: Boneco de Teste_Frame_13
+    originalName: 
+    pivot: {x: -2.9999998, y: -31}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 66
+      y: 238
+      width: 6
+      height: 1
+    spriteID: 68b4edb6bea407f43ab6345d816a6764
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 66, y: 238}
+  spriteSheetImportData: []
+  asepriteLayers:
+  - layerIndex: 0
+    guid: 1159525246
+    name: Boneco de Teste
+    layerFlags: 0
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: Boneco de Teste_Frame_0
+      frameIndex: 0
+      cellRect:
+        x: 31
+        y: 2
+        width: 31
+        height: 64
+      spriteId: 39148a28e8834244dbf7ec8a9a990af5
+    - name: Boneco de Teste_Frame_1
+      frameIndex: 1
+      cellRect:
+        x: 37
+        y: 2
+        width: 31
+        height: 61
+      spriteId: 504c86659be732442b4b4af92ce8f1e0
+    - name: Boneco de Teste_Frame_2
+      frameIndex: 2
+      cellRect:
+        x: 27
+        y: 2
+        width: 29
+        height: 62
+      spriteId: 536d7623138d8544e959f01a30c4f9a8
+    - name: Boneco de Teste_Frame_3
+      frameIndex: 3
+      cellRect:
+        x: 34
+        y: 2
+        width: 30
+        height: 62
+      spriteId: eb88b113683726847a8aecfca29cbb1e
+    - name: Boneco de Teste_Frame_4
+      frameIndex: 4
+      cellRect:
+        x: 29
+        y: 2
+        width: 30
+        height: 63
+      spriteId: fb9cdc621bee1ab40bf33767dee1ea47
+    - name: Boneco de Teste_Frame_5
+      frameIndex: 5
+      cellRect:
+        x: 33
+        y: 2
+        width: 30
+        height: 63
+      spriteId: a14cd9e9f3480eb4a869396cd1c68418
+    - name: Boneco de Teste_Frame_6
+      frameIndex: 6
+      cellRect:
+        x: 30
+        y: 2
+        width: 31
+        height: 63
+      spriteId: 6777e3f1d4c85a74c9cb0c0dfd33bdf9
+    - name: Boneco de Teste_Frame_7
+      frameIndex: 7
+      cellRect:
+        x: 31
+        y: 2
+        width: 31
+        height: 64
+      spriteId: b2526c4888ade74418023b9f18369be2
+    - name: Boneco de Teste_Frame_8
+      frameIndex: 8
+      cellRect:
+        x: 41
+        y: 23
+        width: 18
+        height: 15
+      spriteId: cfce1e8793a7e4b45987a2575eb19f57
+    - name: Boneco de Teste_Frame_9
+      frameIndex: 9
+      cellRect:
+        x: 27
+        y: 16
+        width: 31
+        height: 32
+      spriteId: 2f83e8ddd474caa4e842f3cec00d96d1
+    - name: Boneco de Teste_Frame_10
+      frameIndex: 10
+      cellRect:
+        x: 45
+        y: 25
+        width: 15
+        height: 13
+      spriteId: 284e7051712091d478877d8529a1def4
+    - name: Boneco de Teste_Frame_11
+      frameIndex: 11
+      cellRect:
+        x: 51
+        y: 27
+        width: 11
+        height: 8
+      spriteId: 782f6f42cf6281c47a559b2a7cde20b5
+    - name: Boneco de Teste_Frame_12
+      frameIndex: 12
+      cellRect:
+        x: 55
+        y: 31
+        width: 12
+        height: 1
+      spriteId: d08c0d3ad60fb6c45a5e16e06e8d6c61
+    - name: Boneco de Teste_Frame_13
+      frameIndex: 13
+      cellRect:
+        x: 62
+        y: 31
+        width: 6
+        height: 1
+      spriteId: 68b4edb6bea407f43ab6345d816a6764
+    linkedCells: []
+    parentIndex: -1
+  platformSettings: []
+  generatePhysicsShape: 0
+  secondarySpriteTextures: []
+  spritePackingTag: 
+  canvasSize: {x: 88, y: 76}

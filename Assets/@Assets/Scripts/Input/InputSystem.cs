@@ -36,4 +36,9 @@ public class InputSystem : MonoBehaviour
     {
         return input.Gameplay.Roll.WasPressedThisFrame();
     }
+
+    public bool GetAttack()
+    {
+        return input.Gameplay.Attack.WasPressedThisFrame();
+    }
 }

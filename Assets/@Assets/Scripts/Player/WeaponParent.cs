@@ -2,24 +2,25 @@ using UnityEngine;
 
 public class WeaponParent : MonoBehaviour
 {
+    public SpriteRenderer Hand;
+    public SpriteRenderer Weapon;
+
     public bool Active { get; private set; } = false;
 
     private int playerSpriteLayer;
-    private InputSystem input;
-
-    private SpriteRenderer spriteRenderer;
+    private float yHand;
 
     private void Awake()
     {
-        spriteRenderer = GetComponentInChildren<SpriteRenderer>();
+        yHand = Hand.transform.localPosition.y;
     }
 
-    public void Initialize(InputSystem inputSystem, int _playerSpriteLayer)
+    public void Enable(int _playerSpriteLayer)
     {
         Active = true;
-        input = inputSystem;
         playerSpriteLayer = _playerSpriteLayer;
-        spriteRenderer.sortingOrder = playerSpriteLayer + 1;
+        Hand.sortingOrder = playerSpriteLayer + 2;
+        Weapon.sortingOrder = playerSpriteLayer + 1;
         gameObject.SetActive(true);
     }
 
@@ -35,32 +36,33 @@ public class WeaponParent : MonoBehaviour
         gameObject.SetActive(false);
     }
 
-    private void Update()
+    public void UpdateDirection(Vector2 direction)
     {
         if (!Active)
             return;
 
-        Vector2 direction = (input.GetPointerPosition() - (Vector2)transform.position).normalized;
+        Vector3 position = Hand.transform.localPosition;
+        if (direction.x > 0)
+        {
+            position.y = yHand;
+            Hand.transform.localPosition = position;
+        }
+        else if (direction.x < 0)
+        {
+            position.y = -yHand;
+            Hand.transform.localPosition = position;
+        }
+
         transform.right = direction;
-
-        //Vector2 scale = transform.localScale;
-        //if (direction.x < 0)
-        //{
-        //    scale.y = -1;
-        //}
-        //else if (direction.x > 0)
-        //{
-        //    scale.y = 1;
-        //}
-        //transform.localScale = scale;
-
         if (transform.eulerAngles.z > 0 && transform.eulerAngles.z < 180)
         {
-            spriteRenderer.sortingOrder = playerSpriteLayer - 1;
+            Weapon.sortingOrder = playerSpriteLayer + 1;
+            Hand.sortingOrder = Weapon.sortingOrder + 1;
         }
         else
         {
-            spriteRenderer.sortingOrder = playerSpriteLayer + 1;
+            Weapon.sortingOrder = playerSpriteLayer - 1;
+            Hand.sortingOrder = Weapon.sortingOrder + 1;
         }
     }
 }

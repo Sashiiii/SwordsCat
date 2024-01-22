@@ -4,7 +4,8 @@ using UnityEngine;
 public class Player : MonoBehaviour {
     
     private enum State { 
-        Normal,
+        Idle,
+        Moving,
         Rolling,
     }
 
@@ -12,8 +13,11 @@ public class Player : MonoBehaviour {
     [SerializeField] private LayerMask dashLayerMask;
     [SerializeField] private int playerSpriteLayer;
 
+    [SerializeField] private Dummy dummyShouldBeRemoved;
+
     private Rigidbody2D rb;
     private InputSystem input;
+    private Animator animator;
     private WeaponParent weaponParent;
 
     private Vector3 moveDir;
@@ -25,8 +29,9 @@ public class Player : MonoBehaviour {
     private void Awake() {
         rb = GetComponent<Rigidbody2D>();
         input = GetComponent<InputSystem>();
+        animator = GetComponentInChildren<Animator>();
         weaponParent = GetComponentInChildren<WeaponParent>();
-        state = State.Normal;
+        state = State.Idle;
 
         SpriteRenderer spriteRenderer = GetComponentsInChildren<SpriteRenderer>().FirstOrDefault();
         if (spriteRenderer != null)
@@ -37,13 +42,48 @@ public class Player : MonoBehaviour {
     
     private void Start()
     {
-        weaponParent.Initialize(input, playerSpriteLayer);
+        weaponParent.Enable(playerSpriteLayer);
     }
 
     private void Update() {
+        bool attack = input.GetAttack();
+        if (attack)
+        {
+            IDamageable damageable = dummyShouldBeRemoved;
+            damageable.Damage(10);
+        }
+
+        moveDir = input.GetMovementInput();
+        if (moveDir.x != 0 || moveDir.y != 0)
+        {
+            state = State.Moving;
+        }
+        else
+        {
+            state = State.Idle;
+        }
+
+        Vector2 direction = (input.GetPointerPosition() - (Vector2)transform.position).normalized;
+        weaponParent.UpdateDirection(direction);
+
+        animator.SetFloat("Horizontal", Mathf.Clamp(direction.x, -1, 1));
+        animator.SetFloat("Vertical", Mathf.Clamp(direction.y, -1, 1));
+
         switch (state) {
-            case State.Normal:
-                moveDir = input.GetMovementInput();
+            case State.Idle:
+                animator.SetFloat("Speed", 1);
+                animator.SetBool("Moving", false);
+                break;
+            case State.Moving:
+                if (direction.x > 0)
+                {
+                    animator.SetFloat("Speed", 1);
+                }
+                else if (direction.x < 0)
+                {
+                    animator.SetFloat("Speed", -1);
+                }
+                animator.SetBool("Moving", true);
 
                 // Dash Key
                 if (stats.CanDash && input.GetDash())
@@ -65,15 +105,18 @@ public class Player : MonoBehaviour {
 
                 float rollSpeedMinimum = 1f;
                 if (rollSpeed < rollSpeedMinimum) {
-                    state = State.Normal;
+                    state = State.Idle;
                 }
                 break;
         }
     }
 
     private void FixedUpdate() {
-        switch (state) { 
-            case State.Normal:
+        switch (state) {
+            case State.Idle:
+                rb.velocity = Vector2.zero;
+                break;
+            case State.Moving:
                 rb.velocity = moveDir * stats.MoveSpeed;
 
                 if (isDashButtonDown) {
