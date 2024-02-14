@@ -13,8 +13,6 @@ public class Player : MonoBehaviour {
     [SerializeField] private LayerMask dashLayerMask;
     [SerializeField] private int playerSpriteLayer;
 
-    [SerializeField] private Dummy dummyShouldBeRemoved;
-
     private Rigidbody2D rb;
     private InputSystem input;
     private Animator animator;
@@ -42,17 +40,11 @@ public class Player : MonoBehaviour {
     
     private void Start()
     {
-        weaponParent.Enable(playerSpriteLayer);
+        weaponParent.Init(playerSpriteLayer);
     }
 
     private void Update() {
         bool attack = input.GetAttack();
-        if (attack)
-        {
-            IDamageable damageable = dummyShouldBeRemoved;
-            damageable.Damage(10);
-        }
-
         moveDir = input.GetMovementInput();
         if (moveDir.x != 0 || moveDir.y != 0)
         {
@@ -108,6 +100,11 @@ public class Player : MonoBehaviour {
                     state = State.Idle;
                 }
                 break;
+        }
+
+        if (attack && (state == State.Idle || state == State.Moving))
+        {
+            weaponParent.Attack();
         }
     }
 
